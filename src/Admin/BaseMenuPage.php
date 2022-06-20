@@ -2,6 +2,8 @@
 
 namespace Adue\WordPressBasePlugin\Admin;
 
+use Adue\WordPressBasePlugin\Views\View;
+
 class BaseMenuPage
 {
 
@@ -11,6 +13,15 @@ class BaseMenuPage
     protected string $menuSlug = '';
     protected string $iconUrl = '';
     protected int $position = 0;
+
+    protected array $submenuItems = [];
+
+    protected $view;
+
+    public function setView($view)
+    {
+        $this->view = $view;
+    }
 
     public function add()
     {
@@ -23,6 +34,20 @@ class BaseMenuPage
             $this->iconUrl,
             $this->position,
         );
+    }
+
+    public function addSubmenus()
+    {
+        foreach ($this->submenuItems as $submenuItem)
+            add_submenu_page(
+                $this->menuSlug,
+                $submenuItem->pageTitle,
+                $submenuItem->menuTitle,
+                $submenuItem->capability,
+                $submenuItem->menuSlug,
+                [$submenuItem, 'render'],
+                $submenuItem->position,
+            );
     }
 
     public function render()
