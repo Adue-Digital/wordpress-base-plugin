@@ -1,0 +1,18 @@
+<?php
+
+namespace Adue\WordPressBasePlugin\Views;
+
+class Assets
+{
+
+    public function enqueueStyles($name, $path, $dependencies = [], $version = '1.0.0', $media = 'all')
+    {
+        wp_enqueue_style( $name, $path, $dependencies, $version, $media );
+    }
+
+    public function enqueueScripts($name, $path, $dependencies = ['jquery'], $version = '1.0.0', $inFooter = false)
+    {
+        wp_enqueue_script( $name, $path, $dependencies, $version, $inFooter );
+    }
+
+}
