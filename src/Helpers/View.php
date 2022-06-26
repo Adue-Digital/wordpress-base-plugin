@@ -1,6 +1,8 @@
 <?php
 
-namespace Adue\WordPressBasePlugin\Views;
+namespace Adue\WordPressBasePlugin\Helpers;
+
+use Adue\WordPressBasePlugin\Helpers\Traits\UseConfig;
 
 class View
 {
@@ -8,9 +10,11 @@ class View
     public string $basePath = '';
     public array $variables = [];
 
-    public function __construct($basePath)
+    use UseConfig;
+
+    public function __construct()
     {
-        $this->basePath = $basePath;
+        $this->basePath = $this->config()->get('base_view_path');
     }
 
     public function set($name, $value)

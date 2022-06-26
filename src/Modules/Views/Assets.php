@@ -1,6 +1,6 @@
 <?php
 
-namespace Adue\WordPressBasePlugin\Views;
+namespace Adue\WordPressBasePlugin\Modules\Views;
 
 class Assets
 {

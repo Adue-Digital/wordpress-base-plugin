@@ -1,8 +1,9 @@
 <?php
 
-namespace Adue\WordPressBasePlugin\Admin;
+namespace Adue\WordPressBasePlugin\Modules\Admin;
 
-use Adue\WordPressBasePlugin\Views\View;
+use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
+use Adue\WordPressBasePlugin\Helpers\Traits\UseView;
 
 class BaseMenuPage
 {
@@ -16,14 +17,19 @@ class BaseMenuPage
 
     protected array $submenuItems = [];
 
-    protected $view;
-
-    public function setView($view)
-    {
-        $this->view = $view;
-    }
+    use UseLoader, UseView;
 
     public function add()
+    {
+        $this->loader()->addAction('init', $this, 'addMenuPage');
+    }
+
+    public function addSubmenus()
+    {
+        $this->loader()->addAction('init', $this, 'addSubmenusPages');
+    }
+
+    public function addMenuPage()
     {
         add_menu_page(
             $this->pageTitle,
@@ -36,7 +42,12 @@ class BaseMenuPage
         );
     }
 
-    public function addSubmenus()
+    public function setSubpage(BaseMenuPage $subpage)
+    {
+        $this->submenuItems[] = $subpage;
+    }
+
+    public function addSubmenusPages()
     {
         foreach ($this->submenuItems as $submenuItem)
             add_submenu_page(

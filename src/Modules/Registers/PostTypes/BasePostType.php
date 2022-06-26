@@ -1,6 +1,9 @@
 <?php
 
-namespace Adue\WordPressBasePlugin\Registers\PostTypes;
+namespace Adue\WordPressBasePlugin\Modules\Registers\PostTypes;
+
+use Adue\WordPressBasePlugin\Base\Loader;
+use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
 
 class BasePostType
 {
@@ -24,8 +27,14 @@ class BasePostType
         'supports'           => [] //['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ],
     ];
 
+    use UseLoader;
 
     public function register()
+    {
+        $this->loader()->addAction('init', $this, 'registerPostType');
+    }
+
+    public function registerPostType()
     {
         register_post_type($this->postType, $this->getArgs());
     }
