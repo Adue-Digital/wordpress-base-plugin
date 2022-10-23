@@ -27,9 +27,10 @@ class BaseCommentMeta
         //Override
     }
 
-    public function modifyCommentText()
+    public function modifyCommentText($text)
     {
         //Override
+        return $text;
     }
 
     public function registerSaveFunction()
