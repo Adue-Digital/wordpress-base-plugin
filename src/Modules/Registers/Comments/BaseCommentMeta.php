@@ -1,5 +1,7 @@
 <?php
 
+namespace Adue\WordPressBasePlugin\Modules\Registers\Comments;
+
 use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
 
 class BaseCommentMeta
