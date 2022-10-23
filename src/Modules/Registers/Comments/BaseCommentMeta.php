@@ -19,6 +19,7 @@ class BaseCommentMeta
         if($this->needLogin == 'no' || $this->needLogin == 'both')
             $this->loader()->addAction('comment_form_after_fields', $this, 'registerCommentMeta');
 
+        $this->registerSaveFunction();
         $this->loader()->addFilter('comment_text', $this, 'modifyCommentText');
     }
 
