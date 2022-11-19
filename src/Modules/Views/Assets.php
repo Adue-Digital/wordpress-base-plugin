@@ -15,4 +15,9 @@ class Assets
         wp_enqueue_script( $name, $path, $dependencies, $version, $inFooter );
     }
 
+    public function localizeScript($name, $varName, $values = [])
+    {
+        wp_localize_script( $name, $varName, $values);
+    }
+
 }
