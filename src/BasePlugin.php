@@ -5,8 +5,8 @@ namespace Adue\WordPressBasePlugin;
 use Adue\WordPressBasePlugin\Base\Activator;
 use Adue\WordPressBasePlugin\Base\Config;
 use Adue\WordPressBasePlugin\Base\Deactivator;
-use Adue\WordPressBasePlugin\Base\Loader;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
+use DI\Container;
 
 
 class BasePlugin
@@ -19,7 +19,7 @@ class BasePlugin
 
     use UseLoader;
 
-    public function __construct()
+    public function __construct(public Container $container)
     {
         $this->loadConfig();
         $this->loadDependences();

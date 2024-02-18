@@ -15,6 +15,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "hassankhan/config": "*"
+        "hassankhan/config": "*",
+        "php-di/php-di": "^7.0"
     }
 }
