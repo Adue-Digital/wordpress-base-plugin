@@ -7,15 +7,11 @@ use Adue\WordPressBasePlugin\Helpers\Traits\UseConfig;
 class View
 {
 
-    public string $basePath = '';
     public array $variables = [];
 
     use UseConfig;
 
-    public function __construct()
-    {
-        $this->basePath = $this->config()->get('base_view_path');
-    }
+    public function __construct(public $basePath) {}
 
     public function set($name, $value)
     {
