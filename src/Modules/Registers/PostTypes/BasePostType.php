@@ -33,7 +33,7 @@ class BasePostType
 
     public function register()
     {
-        $this->loader()->addAction('init', $this, 'registerPostType');
+        $this->loader->addAction('init', $this, 'registerPostType');
     }
 
     public function registerPostType()

@@ -17,18 +17,9 @@ class BasePlugin
     protected Activator $activator;
     protected Deactivator $deactivator;
 
-    use UseLoader;
-
     public function __construct(public Container $container)
     {
-        //$this->loadConfig();
         $this->loadDependences();
-    }
-
-    private function loadConfig()
-    {
-        if(file_exists($this->configFilePath))
-            Config::setConfig($this->configFilePath);
     }
 
     private function loadDependences()
