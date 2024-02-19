@@ -27,7 +27,9 @@ class BasePostType
         'supports'           => [] //['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ],
     ];
 
-    use UseLoader;
+    public function __construct(
+        public Loader $loader
+    ) {}
 
     public function register()
     {

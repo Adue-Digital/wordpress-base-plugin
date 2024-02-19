@@ -9,8 +9,6 @@ class View
 
     public array $variables = [];
 
-    use UseConfig;
-
     public function __construct(public $basePath) {}
 
     public function set($name, $value)

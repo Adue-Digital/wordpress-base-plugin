@@ -2,6 +2,7 @@
 
 namespace Adue\WordPressBasePlugin\Modules\Registers\Comments;
 
+use Adue\WordPressBasePlugin\Base\Loader;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
 
 class BaseCommentMeta
@@ -9,7 +10,9 @@ class BaseCommentMeta
     protected $key = '';
     protected $needLogin = 'both'; //Posible values: yes, no, both
 
-    use UseLoader;
+    public function __construct(
+        public Loader $loader
+    ) {}
 
     public function register()
     {

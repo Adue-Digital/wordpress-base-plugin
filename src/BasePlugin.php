@@ -21,7 +21,7 @@ class BasePlugin
 
     public function __construct(public Container $container)
     {
-        $this->loadConfig();
+        //$this->loadConfig();
         $this->loadDependences();
     }
 
@@ -33,8 +33,19 @@ class BasePlugin
 
     private function loadDependences()
     {
+
         $this->activator = new Activator();
         $this->deactivator = new Deactivator();
+    }
+
+    public function getContainer()
+    {
+        return $this->container;
+    }
+
+    public function register()
+    {
+
     }
 
     public function init() {}

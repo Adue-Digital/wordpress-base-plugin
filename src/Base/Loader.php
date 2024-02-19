@@ -2,7 +2,7 @@
 
 namespace Adue\WordPressBasePlugin\Base;
 
-class Loader extends Singleton
+class Loader
 {
 
     protected $actions = [];

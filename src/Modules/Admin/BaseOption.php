@@ -2,7 +2,7 @@
 
 namespace Adue\WordPressBasePlugin\Modules\Admin;
 
-use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
+use Adue\WordPressBasePlugin\Base\Loader;
 
 class BaseOption
 {
@@ -12,7 +12,9 @@ class BaseOption
     protected bool $deprecated = false;
     protected bool $autoload = true;
 
-    use UseLoader;
+    public function __construct(
+        public Loader $loader
+    ) {}
 
     public function get()
     {
