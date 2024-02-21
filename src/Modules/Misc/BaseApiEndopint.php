@@ -14,7 +14,7 @@ class BaseApiEndopint
 
     private array $availableMethods = ['GET', 'POST', 'PUT', 'PATCH'];
 
-    public function __construct(string $namespace, string $uri, Loader $loader)
+    public function __construct(Loader $loader)
     {
         $this->loader = $loader;
     }
