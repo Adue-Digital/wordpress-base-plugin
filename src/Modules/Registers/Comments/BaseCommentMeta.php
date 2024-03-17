@@ -2,17 +2,15 @@
 
 namespace Adue\WordPressBasePlugin\Modules\Registers\Comments;
 
-use Adue\WordPressBasePlugin\Base\Loader;
-use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
+use Adue\WordPressBasePlugin\Traits\LoaderTrait;
 
 class BaseCommentMeta
 {
+
+    use LoaderTrait;
+
     protected $key = '';
     protected $needLogin = 'both'; //Posible values: yes, no, both
-
-    public function __construct(
-        public Loader $loader
-    ) {}
 
     public function register()
     {

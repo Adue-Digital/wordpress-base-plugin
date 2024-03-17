@@ -6,9 +6,13 @@ use Adue\WordPressBasePlugin\Base\Loader;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseView;
 use Adue\WordPressBasePlugin\Helpers\View;
+use Adue\WordPressBasePlugin\Traits\LoaderTrait;
+use Adue\WordPressBasePlugin\Traits\ViewTrait;
 
 class BaseMenuPage
 {
+
+    use LoaderTrait, ViewTrait;
 
     protected string $pageTitle = '';
     protected string $menuTitle = '';
@@ -19,19 +23,14 @@ class BaseMenuPage
 
     protected array $submenuItems = [];
 
-    public function __construct(
-        public View $view,
-        public Loader $loader
-    ) {}
-
     public function add()
     {
-        $this->loader->addAction('init', $this, 'addMenuPage');
+        $this->loader()->addAction('init', $this, 'addMenuPage');
     }
 
     public function addSubmenus()
     {
-        $this->loader->addAction('init', $this, 'addSubmenusPages');
+        $this->loader()->addAction('init', $this, 'addSubmenusPages');
     }
 
     public function addMenuPage()

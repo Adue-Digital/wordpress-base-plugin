@@ -2,19 +2,17 @@
 
 namespace Adue\WordPressBasePlugin\Modules\Admin;
 
-use Adue\WordPressBasePlugin\Base\Loader;
+use Adue\WordPressBasePlugin\Traits\LoaderTrait;
 
 class BaseOption
 {
+
+    use LoaderTrait;
 
     protected string $name = '';
     protected $value = null;
     protected bool $deprecated = false;
     protected bool $autoload = true;
-
-    public function __construct(
-        public Loader $loader
-    ) {}
 
     public function get()
     {

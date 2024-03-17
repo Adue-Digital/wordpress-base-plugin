@@ -4,9 +4,13 @@ namespace Adue\WordPressBasePlugin\Modules\Registers\PostTypes;
 
 use Adue\WordPressBasePlugin\Base\Loader;
 use Adue\WordPressBasePlugin\Helpers\Traits\UseLoader;
+use Adue\WordPressBasePlugin\Traits\LoaderTrait;
 
 class BasePostType
 {
+
+    use LoaderTrait;
+
     protected string $postType = 'custom_post_type';
     protected string $name = '';
     protected string $singularName = '';
@@ -26,10 +30,6 @@ class BasePostType
         'menu_position'      => null,
         'supports'           => [] //['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ],
     ];
-
-    public function __construct(
-        public Loader $loader
-    ) {}
 
     public function register()
     {
