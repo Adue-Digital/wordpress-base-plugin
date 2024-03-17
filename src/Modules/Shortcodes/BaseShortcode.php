@@ -1,6 +1,6 @@
 <?php
 
-namespace Adue\WordPressBasePlugin\Modules\Misc;
+namespace Adue\WordPressBasePlugin\Modules\Shortcodes;
 
 class BaseShortcode
 {

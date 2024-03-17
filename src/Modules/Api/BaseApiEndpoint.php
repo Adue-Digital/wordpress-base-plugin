@@ -1,11 +1,10 @@
 <?php
 
-namespace Adue\WordPressBasePlugin\Modules\Misc;
+namespace Adue\WordPressBasePlugin\Modules\Api;
 
-use Adue\WordPressBasePlugin\Base\Loader;
 use Adue\WordPressBasePlugin\Traits\LoaderTrait;
 
-class BaseApiEndopint
+class BaseApiEndpoint
 {
 
     use LoaderTrait;
