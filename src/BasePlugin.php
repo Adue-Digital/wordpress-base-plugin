@@ -12,7 +12,6 @@ use DI\Container;
 class BasePlugin
 {
 
-    protected string $configFilePath = '';
     protected array $dependencies = [];
     protected Activator $activator;
     protected Deactivator $deactivator;
@@ -45,5 +44,14 @@ class BasePlugin
     {
         $this->loader()->run();
     }
+
+    public function activate()
+    {}
+
+    public function deactivate()
+    {}
+
+    public function uninstall()
+    {}
 
 }
