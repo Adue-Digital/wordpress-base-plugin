@@ -45,6 +45,24 @@ class BasePlugin
         $this->loader()->run();
     }
 
+    private function registerMainHooks($path)
+    {
+        register_activation_hook(
+            $path,
+            [$this, 'activate']
+        );
+
+        register_deactivation_hook(
+            $path,
+            [$this, 'deactivate']
+        );
+
+        register_uninstall_hook(
+            $path,
+            [$this, 'uninstall']
+        );
+    }
+
     public function activate()
     {}
 
