@@ -45,7 +45,7 @@ class BasePlugin
         $this->loader()->run();
     }
 
-    private function registerMainHooks($path)
+    public function registerMainHooks($path)
     {
         register_activation_hook(
             $path,
