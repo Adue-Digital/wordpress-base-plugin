@@ -9,9 +9,9 @@ class BaseRole
 
     use LoaderTrait;
 
-    protected string $role;
-    protected string $displayName;
-    protected array $capabilities;
+    protected string $role = 'base_role';
+    protected string $displayName = 'Base role';
+    protected array $capabilities = [];
 
     public function add()
     {
